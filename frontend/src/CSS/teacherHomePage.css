@@ -1,0 +1,61 @@
+.teacherHP-wrapper .btns {
+    width: 100%;
+    padding: 20px 0;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.teacherHP-wrapper .btns button {
+    width: 230px;
+    height: 40px;
+    border-radius: 25px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #00fd83;
+    letter-spacing: 1.2pt;
+    font-size: 11pt;
+    -webkit-text-stroke-width: .4pt;
+    transition: .4s all ease;
+}
+
+.teacherHP-wrapper .btns button:hover,
+.teacherHP-wrapper .btns button:focus {
+    transform: scale(.96);
+    box-shadow: 0 0 15px 5px rgb(0, 247, 255);
+}
+
+@media (max-width:485px) {
+    .teacherHP-wrapper .tea-profile {
+        min-width: 95%;
+    }
+
+    .teacherHP-wrapper .tea-profile .details {
+        font-size: 10pt;
+        width: 100%;
+        align-items: center;
+    }
+
+    .teacherHP-wrapper .tea-profile img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width:340px) {
+    .teacherHP-wrapper .tea-profile .details {
+        font-size: 11pt;
+        width: 100%;
+        align-items: flex-start;
+        line-height: 20px;
+    }
+    .teacherHP-wrapper .tea-profile .details .left{
+        padding: 0 5px;
+    }
+}
+@media (max-width:305px) {
+    .teacherHP-wrapper .tea-profile .details {
+        font-size: 8pt;
+    }
+}

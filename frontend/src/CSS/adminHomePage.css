@@ -1,0 +1,42 @@
+/*=========================================================================TABLE DESIGN======================================================*/
+.adminHomePage-wrapper .table-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+}
+.adminHomePage-wrapper .table-container table{
+    border-collapse: collapse;
+    font-size: 1.1em;
+    width: max-content;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.adminHomePage-wrapper .table-container table thead tr{
+    background-color: rgb(95 91 255);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+.adminHomePage-wrapper .table-container table th,
+.adminHomePage-wrapper .table-container table td{
+    padding: 12px 15px;
+    text-align: center;
+}
+.adminHomePage-wrapper .table-container table tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+.adminHomePage-wrapper .table-container table tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+.adminHomePage-wrapper .table-container table tbody tr:last-of-type{
+    border-bottom: 2px solid rgb(95 91 255);
+}
+.adminHomePage-wrapper .table-container table tbody tr td button{
+    width: 80px;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 0 2px;
+}
+/*=========================================================================END OF TABLE DESIGN===============================================*/

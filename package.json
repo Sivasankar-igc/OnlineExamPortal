@@ -1,0 +1,18 @@
+{
+  "name": "examcreationportal",
+  "version": "1.0.0",
+  "description": "This field will be updated later by me.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Siva Sankar Sahoo",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3",
+    "path": "^0.12.7",
+    "url": "^0.11.3"
+  }
+}

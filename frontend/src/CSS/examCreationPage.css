@@ -1,0 +1,120 @@
+.examCreation-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.examCreation-wrapper .head{
+    display: flex;
+    height: max-content;
+    box-shadow: 0 1.3px 3px  black;
+}
+.examCreation-wrapper .head .details{
+    padding: 10px 0; 
+    line-height: 25px;
+    display:flex;
+}
+.examCreation-wrapper .head .details .left{
+    padding: 0 20px;
+}
+
+/*=====================================================BODY DESIGN===================================================*/
+.examCreation-wrapper .body{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 10px;
+}
+.examCreation-wrapper .body .question-format{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+.examCreation-wrapper .body .question-format header{
+    -webkit-text-stroke-width: .6pt;
+    font-size: 12pt;
+    margin-bottom: 20px;
+    position: relative;
+}
+.examCreation-wrapper .body .question-format header::after{
+    position: absolute;
+    content: "";
+    width: 100px;
+    left: 0;
+    top:110%;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+.examCreation-wrapper .body .question-format .questions{
+    padding: 10px 0;
+}
+.examCreation-wrapper .body .question-format .questions .question{
+    margin-bottom: 20px;
+}
+.examCreation-wrapper .body .question-format .questions .question textarea,
+.examCreation-wrapper .body .question-format .questions .question div input{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;
+    -webkit-text-stroke-width: .4pt;
+    letter-spacing: .8pt;
+    padding-left: 5px;
+}
+.examCreation-wrapper .body .question-format .questions .question div{
+    display: flex;
+    margin-bottom: 10px;
+}
+.examCreation-wrapper .body .question-format .questions .question div span{
+    margin-right: 10px;
+}
+.examCreation-wrapper .body .question-format .questions .options{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+.examCreation-wrapper .body .question-format .questions .options div{
+    width: 46%;
+    display: flex;
+    margin: 5px;
+}
+.examCreation-wrapper .body .question-format .questions .options div input{
+    width: 100%;
+}
+.examCreation-wrapper .body .question-format #btn-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+.examCreation-wrapper .body .question-format #btn-container button{
+    width: 320px;
+    height: 45px;
+    border-radius: 25px;
+    font-size: 12pt;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1.1pt;
+    transition: .4s all ease;
+}
+.examCreation-wrapper .body .question-format #btn-container button:focus,
+.examCreation-wrapper .body .question-format #btn-container button:hover{
+    transform: scale(.96);
+}
+/*=====================================================END OF BODY DESIGN============================================*/
+
+/*=======================================================================ATTEND EXAM DESIGN=====================================================*/
+.examCreation-wrapper .body .question-format .attendExam .question .options div input{
+    width: 20%;
+    cursor: pointer;
+}
+.examCreation-wrapper .body .question-format .attendExam .question .options div label{
+    cursor: pointer;
+}
+.examCreation-wrapper .attendExamHead{
+    justify-content: space-between;
+}
+/*=======================================================================END OF ATTEND EXAM DESIGN==============================================*/

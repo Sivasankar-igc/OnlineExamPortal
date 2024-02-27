@@ -1,0 +1,74 @@
+/*==============================================================STUDENT HOME PAGE DESIGN=======================================================*/
+.std-exams-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.std-exams-wrapper header{
+    font-size: 16pt;
+    -webkit-text-stroke-width: .6pt;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    position: relative;
+}
+.std-exams-wrapper header::after{
+    position: absolute;
+    content: "";
+    width: 250px;
+    border: 2px solid black;
+    border-radius: 15px;
+    top: 100%;
+    left: -60%;
+}
+.std-exams-wrapper .exam-container{
+    min-width: 700px;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px;
+}
+.std-exams-wrapper .exam-container .exam-box,
+.std-exams-wrapper .exam-container .exam-box-heading{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    border-radius: 250px;
+    box-shadow: 0 0 10px 5px rgb(72, 0, 255);
+    height: 40px;
+    margin: 15px 0;
+}
+.std-exams-wrapper .exam-container .exam-box-heading p{
+    width: 25%;
+    margin: 0 8%;
+    font-size: 11pt;
+    -webkit-text-stroke-width: .6pt;
+    text-align: center;
+}
+.std-exams-wrapper .exam-container .exam-box div:nth-child(n){
+    margin: 0 3px;
+    width: 25%;
+    text-align: center;
+    font-size: 12pt;
+    -webkit-text-stroke-width: .4pt;
+}
+.std-exams-wrapper .exam-container .exam-box button{
+    width: 15%;
+    height: 30px;
+    border-radius: 25px;
+    font-size: 10pt;
+    -webkit-text-stroke-width: .6pt;
+    letter-spacing: 1.1pt;
+    cursor: pointer;
+    margin-left: 5%;
+}
+.std-exams-wrapper .exam-container .exam-box button.active{
+    transition: .4s all ease;
+}
+.std-exams-wrapper .exam-container .exam-box button.active:hover,
+.std-exams-wrapper .exam-container .exam-box button.active:focus{
+    transform: scale(.92);
+}
+/*==============================================================END OF STUDENT HOME PAGE DESIGN================================================*/
