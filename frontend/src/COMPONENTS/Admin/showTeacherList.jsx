@@ -6,6 +6,13 @@ const ShowTeacherList = () => {
     const [updateRequest, setUpdateRequest] = useState(null);
     const [subjects, setSubjects] = useState(null);
     const [canEditSubject, setCanEditSubject] = useState(false);
+    const [updatedTeacherInfo, setUpdatedTeacherInfo] = useState({
+        name: "",
+        email: "",
+        tid: "",
+        phno: "",
+        designation: "",
+    })
 
     useEffect(() => {
         axios.post("http://localhost:8000/showTeacherList")
@@ -13,10 +20,39 @@ const ShowTeacherList = () => {
             .catch(err => window.alert("network connection error"))
     }, [])
 
-    const handleEdit = (tid, name, email, phno) => {
-        console.log(tid, name, email, phno)
+    const handleEdit = (e) => {
+        setUpdatedTeacherInfo({
+            ...updatedTeacherInfo,
+            [e.target.name]: e.target.value
+        })
     }
 
+    const updateTeacherData = (ActTid) => {
+        axios.post("http://localhost:8000/editTeacher", {
+            ActTid,
+            name: updatedTeacherInfo.name,
+            email: updatedTeacherInfo.email,
+            tid: updatedTeacherInfo.tid,
+            phno: updatedTeacherInfo.phno,
+            designation: updatedTeacherInfo.designation,
+        }).then(res => {
+            if (res.data === "edited") location.reload()
+            else if (res.data === "not edited") window.alert("Something went wrong")
+        }).catch(err => console.error(`Error : couldn't update the teacher data --> ${err}`))
+    }
+
+    const requestUpdate = (data) => {
+        setUpdateRequest(data.tid);
+        setUpdatedTeacherInfo({
+            ...updatedTeacherInfo,
+            name: data.name,
+            email: data.email,
+            tid: data.tid,
+            phno: data.phno,
+            designation: data.designation
+        })
+    }
+    
     const removeSubject = (index) => {
         subjects.splice(index, 1);
         setSubjects([...subjects]);
@@ -39,6 +75,7 @@ const ShowTeacherList = () => {
                                 <th>TID</th>
                                 <th>Email</th>
                                 <th>PHNO</th>
+                                <th>DESIGNATION</th>
                                 <th>SUBJECTS</th>
                                 <th>ACTION</th>
                             </tr>
@@ -47,19 +84,21 @@ const ShowTeacherList = () => {
                             {
                                 teacherData.map((data) => (
                                     <tr key={data.email}>
-                                        {updateRequest === data.tid ? <td><input type="text" defaultValue={data.name} /></td> : <td>{data.name}</td>}
-                                        {updateRequest === data.tid ? <td><input type="text" defaultValue={data.tid} /></td> : <td>{data.tid}</td>}
-                                        {updateRequest === data.tid ? <td><input type="text" defaultValue={data.email} /></td> : <td>{data.email}</td>}
-                                        {updateRequest === data.tid ? <td><input type="text" defaultValue={data.phno} /></td> : <td>{data.phno}</td>}
-                                        {updateRequest === data.tid ? <td><button onClick={() => { setSubjects(data.subjects); setCanEditSubject(true) }}>Edit Subject</button></td> :
-                                            <td>
-                                                {
-                                                    data.subjects.map((sub, index) => (
-                                                        <span key={index}>{sub},&nbsp;</span>
-                                                    ))
-                                                }
-                                            </td>}
-                                        <td>{updateRequest === data.tid ? <button onClick={() => handleEdit(data.tid)}>Done</button> : <button onClick={() => setUpdateRequest(data.tid)}>Edit</button>}<button>Remove</button></td>
+                                        {updateRequest === data.tid ? <td><input type="text" onChange={handleEdit} name="name" defaultValue={data.name} /></td> : <td>{data.name}</td>}
+                                        {updateRequest === data.tid ? <td><input type="text" onChange={handleEdit} name="tid" defaultValue={data.tid} /></td> : <td>{data.tid}</td>}
+                                        {updateRequest === data.tid ? <td><input type="text" onChange={handleEdit} name="email" defaultValue={data.email} /></td> : <td>{data.email}</td>}
+                                        {updateRequest === data.tid ? <td><input type="text" onChange={handleEdit} name="phno" defaultValue={data.phno} /></td> : <td>{data.phno}</td>}
+                                        {updateRequest === data.tid ? <td><input type="text" onChange={handleEdit} name="designation" defaultValue={data.designation} /></td> : <td>{data.designation}</td>}
+                                        {/* {updateRequest === data.tid ? <td><button onClick={() => { setSubjects(data.subjects); setCanEditSubject(true) }}>Edit Subject</button></td> : */}
+                                        <td>
+                                            {
+                                                data.subjects.map((sub, index) => (
+                                                    <span key={index}>{sub},&nbsp;</span>
+                                                ))
+                                            }
+                                        </td>
+                                        {/* } */}
+                                        <td>{updateRequest === data.tid ? <button onClick={() => updateTeacherData(data.tid)}>Done</button> : <button onClick={() => requestUpdate(data)}>Edit</button>}<button>Remove</button></td>
                                     </tr>
                                 ))
                             }
@@ -67,7 +106,7 @@ const ShowTeacherList = () => {
                     </table>
                 </div>
 
-                {
+                {/* {
                     subjects !== null ?
                         <div>
                             {
@@ -78,7 +117,7 @@ const ShowTeacherList = () => {
                             <button onClick={() => setSubjects([...subjects, ""])}>Add</button><button onClick={() => setCanEditSubject(false)}>Done</button>
                         </div>
                         : ""
-                }
+                } */}
             </>
         )
     } else {

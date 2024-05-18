@@ -42,11 +42,11 @@ const TeacherEntry = () => {
     return (
         <>
             <div>
-                <input type="text" onChange={(e) => setName(e.target.value)} /> <br />
-                <input type="email" onChange={(e) => setEmail(e.target.value)} /><br />
-                <input type="text" onChange={e => setTid(e.target.value)} /><br />
-                <input type="text" onChange={e => setPhno(e.target.value)} /><br />
-                <input type="text" onChange={e => setDesignation(e.target.value)} /><br />
+                <input type="text" placeholder="name" onChange={(e) => setName(e.target.value)} /> <br />
+                <input type="email" placeholder="email" onChange={(e) => setEmail(e.target.value)} /><br />
+                <input type="text" placeholder="tid" onChange={e => setTid(e.target.value)} /><br />
+                <input type="text" placeholder="phno" onChange={e => setPhno(e.target.value)} /><br />
+                <input type="text" placeholder="designation" onChange={e => setDesignation(e.target.value)} /><br />
             </div>
             {
                 subjects.map((sub, index) => (

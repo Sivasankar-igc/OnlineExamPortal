@@ -9,7 +9,7 @@ web.use(express.json());
 web.use(urlencoded({ extended: false }));
 web.use(cors());
 
-const convertTimeToString = (time) => {
+const convertTimeToString = (time) => { /// TO CONVERT THE TIME INTO APPROPRIATE FORMAT
     let hour = parseInt(time.split(":")[0]);
     let minute = parseInt(time.split(":")[1]);
 
@@ -62,6 +62,17 @@ web.post("/teacherEntry", async (req, res) => {
         response !== null ? res.status(200).send("success") : res.status(200).send("failed");
     } catch (error) {
         console.error(`Error : teacher entry error =>>> ${error}`)
+    }
+})
+
+web.post("/editTeacher", async (req, res) => {
+    try {
+        const { ActTid, name, email, tid, phno, designation } = req.body;
+
+        const response = await teacherCollection.updateOne({ tid: ActTid }, { tid: tid, name: name, email: email, phno: phno, designation: designation });
+        response.modifiedCount === 1 ? res.status(200).send("edited") : res.status(200).send("not edited");
+    } catch (error) {
+        console.error(`Error : while editing teacher data =>>> ${error}`)
     }
 })
 
